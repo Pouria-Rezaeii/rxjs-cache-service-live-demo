@@ -1,0 +1,10 @@
+.active-post {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  * {
+    max-width: 600px;
+  }
+}

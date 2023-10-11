@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #222222;
+
+  * {
+    margin: 0;
+    padding: 0;
+    color: #c2c2c2;
+    font-family: Ubuntu;
+  }
+
+  ul,
+  li {
+    list-style: none;
+    list-style-type: none;
+    transition: 0.15s;
+    &:hover {
+      color: #f4f4f4;
+    }
+  }
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #ffffff;
+  border: none !important;
+  border-radius: 6px !important;
+  background-color: seagreen;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}

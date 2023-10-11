@@ -1,0 +1,7 @@
+<div class="active-post">
+  <p *ngIf="!post">Loadding...</p>
+  <div *ngIf="post">
+    <h4 style="margin-bottom: 2rem">{{ post.id }} {{ post.title }}</h4>
+    <p>{{ post.body }}</p>
+  </div>
+</div>
