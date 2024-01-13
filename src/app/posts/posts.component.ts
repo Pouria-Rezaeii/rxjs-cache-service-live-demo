@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CacheService } from 'rxjs-cache-service';
 import { PostsService } from './posts.service';
 import { Post } from './types/post.type';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -15,7 +16,7 @@ export class PostsComponent implements OnInit {
 
   constructor(
     private _postsService: PostsService,
-    private _cacheService: CacheService
+    private _cacheService: CacheService,
   ) {}
 
   ngOnInit() {
@@ -23,9 +24,13 @@ export class PostsComponent implements OnInit {
   }
 
   public fetchPosts() {
-    this._postsService.getPosts().subscribe((res) => {
-      this.posts = res.filter((post) => post.id < 11);
-    });
+    this._postsService
+      .getPosts()
+      .pipe(map((posts) => posts.filter((_, index) => index < 10)))
+      .subscribe({
+        next: (res) => (this.posts = res),
+        error: (e) => alert('error: ' + JSON.stringify(e)),
+      });
   }
 
   public resetCache() {
