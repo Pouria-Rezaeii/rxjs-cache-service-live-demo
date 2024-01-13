@@ -1,4 +1,4 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +15,7 @@ import { HttpClientInterceptor } from './services/middlewares/http-client-interc
 
 export function cacheServiceFactory() {
   return new CacheService({
-    isDevMode: isDevMode(),
+    isDevMode: true,
     devtool: {
       show: true,
       isOpenInitially: true,
