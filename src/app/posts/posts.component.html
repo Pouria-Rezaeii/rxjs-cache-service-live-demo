@@ -1,12 +1,12 @@
 <div class="flex justify-center items-center gap-1">
-  <button (click)="resetCache()">Reset Cache</button>
+   <button (click)="resetCache()">Reset Cache</button>
 </div>
 <div class="posts">
-  <p *ngIf="!posts">Loading...</p>
-  <ul *ngIf="posts">
-    <h3 style="margin-bottom: 1rem">Posts</h3>
-    <li *ngFor="let post of posts" [routerLink]="'./' + post.id">
-      {{ post.id }} {{ post.title }}
-    </li>
-  </ul>
+   <p *ngIf="!posts">Loading...</p>
+   <ul *ngIf="posts">
+      <h3 style="margin-bottom: 1rem">Posts</h3>
+      <li *ngFor="let post of posts" [routerLink]="'./' + post.id">
+         {{ post.id }} {{ post.title }}
+      </li>
+   </ul>
 </div>
