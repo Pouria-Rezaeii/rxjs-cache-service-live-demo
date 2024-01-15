@@ -12,6 +12,7 @@ import {PostsComponent} from "./posts/posts.component";
 import {HomeComponent} from "./home/home.component";
 import {PostsService} from "./posts/posts.service";
 import {HttpClientInterceptor} from "./core/middlewares/http-client-interceptor";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 export function cacheServiceFactory() {
    return new CacheService({
@@ -24,7 +25,7 @@ export function cacheServiceFactory() {
 }
 
 @NgModule({
-   declarations: [AppComponent, HomeComponent, PostComponent, PostsComponent],
+   declarations: [AppComponent, HomeComponent, PostComponent, PostsComponent, NotFoundComponent],
    imports: [
       CommonModule,
       BrowserModule,
