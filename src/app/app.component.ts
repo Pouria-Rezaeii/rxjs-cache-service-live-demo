@@ -1,8 +1,15 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
+import {CacheService} from "rxjs-cache-service";
+import {outerLinks} from "./core/constants/outer-links";
 
 @Component({
-   selector: 'app-root',
-   templateUrl: './app.component.html',
-   styleUrls: ['./app.component.scss'],
+   selector: "app-root",
+   templateUrl: "./app.component.html",
 })
-export class AppComponent {}
+export class AppComponent {
+   constructor(private _cacheService: CacheService) {
+      const cachedData = this._cacheService.cachedData;
+   }
+
+   protected readonly outerLinks = outerLinks;
+}

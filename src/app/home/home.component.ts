@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
+import {outerLinks} from "../core/constants/outer-links";
 
 @Component({
-   selector: 'app-home',
-   templateUrl: './home.component.html',
-   styleUrls: ['./home.component.scss'],
+   selector: "app-home",
+   templateUrl: "./home.component.html",
 })
-export class HomeComponent {}
+export class HomeComponent {
+   protected readonly outerLinks = outerLinks;
+}

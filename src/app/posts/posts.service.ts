@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {CacheService} from 'rxjs-cache-service';
-import {HttpClient} from '@angular/common/http';
-import {Post} from './types/post.type';
-import {delay} from 'rxjs';
+import {Injectable} from "@angular/core";
+import {CacheService} from "rxjs-cache-service";
+import {HttpClient} from "@angular/common/http";
+import {Post} from "./types/post.type";
+import {delay} from "rxjs";
 
 @Injectable()
 export class PostsService {
@@ -13,8 +13,7 @@ export class PostsService {
 
    public getPosts() {
       return this._cache.get<Post[]>({
-         uniqueIdentifier: 'json placeholder',
-         url: 'posts',
+         url: "posts",
          observable: ({arrangedUrl}) => this._httpClient.get<Post[]>(arrangedUrl).pipe(delay(500)),
          refresh: true,
       });
