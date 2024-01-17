@@ -14,7 +14,9 @@ export class PostsService {
    public getPosts() {
       return this._cache.get<Post[]>({
          url: "posts",
-         observable: ({arrangedUrl}) => this._httpClient.get<Post[]>(arrangedUrl).pipe(delay(500)),
+         params: {_start: 0, _limit: 5},
+         observable: ({arrangedUrl}) =>
+            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(50)),
          refresh: true,
       });
    }
@@ -22,7 +24,7 @@ export class PostsService {
    public getSinglePost(id: number) {
       return this._cache.get<Post>({
          url: `posts/${id}`,
-         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(500)),
+         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(50)),
          clearTimeout: 30000,
       });
    }

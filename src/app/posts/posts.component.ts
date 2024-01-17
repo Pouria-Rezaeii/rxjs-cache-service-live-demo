@@ -1,18 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {CacheService} from 'rxjs-cache-service';
-import {PostsService} from './posts.service';
-import {Post} from './types/post.type';
-import {map} from 'rxjs';
+import {Component, OnInit} from "@angular/core";
+import {CacheService} from "rxjs-cache-service";
+import {PostsService} from "./posts.service";
+import {Post} from "./types/post.type";
+import {getAuthorImageLink, getAuthorName} from "../core/utils/get-author-info";
 
 @Component({
-   selector: 'app-posts',
-   templateUrl: './posts.component.html',
-   styleUrls: ['./posts.component.scss'],
+   selector: "app-posts",
+   templateUrl: "./posts.component.html",
 })
 export class PostsComponent implements OnInit {
+   protected readonly getAuthorImageLink = getAuthorImageLink;
+   protected readonly getAuthorName = getAuthorName;
    public posts: Post[];
-   public activePost: Post | null = null;
-   public activePostId: number | null = null;
 
    constructor(
       private _postsService: PostsService,
@@ -24,16 +23,9 @@ export class PostsComponent implements OnInit {
    }
 
    public fetchPosts() {
-      this._postsService
-         .getPosts()
-         .pipe(map((posts) => posts.filter((_, index) => index < 10)))
-         .subscribe({
-            next: (res) => (this.posts = res),
-            error: (e) => alert('error: ' + JSON.stringify(e)),
-         });
-   }
-
-   public resetCache() {
-      this._cacheService.resetCache();
+      this._postsService.getPosts().subscribe({
+         next: (res) => (this.posts = res),
+         error: (e) => alert("An error occurred while fetching posts."),
+      });
    }
 }
