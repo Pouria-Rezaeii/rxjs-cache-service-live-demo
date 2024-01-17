@@ -1,7 +1,3 @@
-export function getAuthorImageLink(userId: number) {
-   return `/assets/avatar/avatar-${userId}.png`;
-}
-
 const fakeNames = [
    "Vito R. Edwards",
    "William J. Gray",
@@ -15,6 +11,14 @@ const fakeNames = [
    "Mary D. Fink",
 ];
 
+export function getAuthors() {
+   return fakeNames.map((name, index) => ({userId: index + 1, name}));
+}
+
 export function getAuthorName(userId: number) {
    return fakeNames[userId - 1];
+}
+
+export function getAuthorImageLink(userId: number) {
+   return `/assets/avatar/avatar-${userId}.png`;
 }

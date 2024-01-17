@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
    selector: "app-pagination",
    templateUrl: "./pagination.component.html",
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnChanges {
    @Input() count = 0;
    @Input() pageSizes = [5, 10, 20, 50];
    @Input() defaultPageSize = this.pageSizes[0];
@@ -23,13 +23,20 @@ export class PaginationComponent implements OnInit {
       this._activatedRoute.queryParams.subscribe((params) => {
          params["_page"] && (this.activePage = Number(params["_page"]));
          params["_limit"] && (this.activePageSize = Number(params["_limit"]));
-
-         const placeholder = Array(Math.ceil(this.count / this.activePageSize));
-         this.pageItems = [];
-         for (let i = 1; i <= placeholder.length; i++) {
-            this.pageItems.push(i);
-         }
+         this.generatePageItems();
       });
+   }
+
+   ngOnChanges(changes: SimpleChanges) {
+      this.generatePageItems();
+   }
+
+   public generatePageItems() {
+      const placeholder = Array(Math.ceil(this.count / this.activePageSize));
+      this.pageItems = [];
+      for (let i = 1; i <= placeholder.length; i++) {
+         this.pageItems.push(i);
+      }
    }
 
    public onChangePage(page: number) {

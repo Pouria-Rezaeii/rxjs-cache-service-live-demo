@@ -1,3 +1,4 @@
 /node_moduels
 /dist
 lint-staged.config.js
+styles.scss

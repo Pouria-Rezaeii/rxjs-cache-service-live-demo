@@ -16,14 +16,13 @@ export class PostsService {
 
    public getPosts(params: {start?: number; limit?: number; userId?: number}) {
       const {start, limit, userId} = params;
-      console.log({start});
 
       return this._cache.get<Post[]>({
          url: "posts",
          defaultParams: {_start: 0, _limit: DEFAULT_PAGE_SIZE},
          params: {_start: start || 0, _limit: limit || 5, userId: userId as number},
          observable: ({arrangedUrl}) =>
-            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(50)),
+            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(150)),
          refresh: true,
       });
    }
@@ -31,7 +30,7 @@ export class PostsService {
    public getSinglePost(id: number) {
       return this._cache.get<Post>({
          url: `posts/${id}`,
-         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(50)),
+         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(150)),
          clearTimeout: 30000,
       });
    }

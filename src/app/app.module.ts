@@ -14,6 +14,8 @@ import {PostsService} from "./posts/posts.service";
 import {HttpClientInterceptor} from "./core/middlewares/http-client-interceptor";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {PaginationComponent} from "./core/components/pagination/pagination.component";
+import {NgSelectModule} from "@ng-select/ng-select";
+import {FormsModule} from "@angular/forms";
 
 export function cacheServiceFactory() {
    return new CacheService({
@@ -40,6 +42,8 @@ export function cacheServiceFactory() {
       BrowserAnimationsModule,
       AppRoutingModule,
       HttpClientModule,
+      NgSelectModule,
+      FormsModule,
    ],
    providers: [
       {

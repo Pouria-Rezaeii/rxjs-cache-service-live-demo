@@ -2,8 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {CacheService} from "rxjs-cache-service";
 import {PostsService} from "./posts.service";
 import {Post} from "./types/post.type";
-import {getAuthorImageLink, getAuthorName} from "../core/utils/get-author-info";
-import {ActivatedRoute} from "@angular/router";
+import {getAuthorImageLink, getAuthorName, getAuthors} from "../core/utils/get-author-info";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DEFAULT_PAGE_SIZE} from "../core/constants/default-page-size";
 
 @Component({
@@ -14,15 +14,21 @@ export class PostsComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
    public posts: Post[];
+   public selectedAuthor: number | null = null;
+   public authors = getAuthors();
 
    constructor(
       private _postsService: PostsService,
       private _cacheService: CacheService,
-      private _activatedRoute: ActivatedRoute
+      private _activatedRoute: ActivatedRoute,
+      private _router: Router
    ) {}
 
    ngOnInit() {
-      this._activatedRoute.queryParams.subscribe(() => this.fetchPosts());
+      this._activatedRoute.queryParams.subscribe((params) => {
+         params["userId"] && (this.selectedAuthor = +params["userId"]);
+         this.fetchPosts();
+      });
    }
 
    public fetchPosts() {
@@ -34,11 +40,19 @@ export class PostsComponent implements OnInit {
          .getPosts({
             start: (+page - 1) * +limit,
             limit: limit,
-            userId: qp["userId"],
+            userId: qp["userId"] && +qp["userId"],
          })
          .subscribe({
             next: (res) => (this.posts = res),
             error: (e) => alert("An error occurred while fetching posts."),
          });
+   }
+
+   public authorChange(author: (typeof this.authors)[number]) {
+      this.selectedAuthor = author ? author.userId : null;
+      this._router.navigate([], {
+         queryParams: {_page: 1, userId: author ? author.userId : null},
+         queryParamsHandling: "merge",
+      });
    }
 }
