@@ -13,6 +13,7 @@ import {HomeComponent} from "./home/home.component";
 import {PostsService} from "./posts/posts.service";
 import {HttpClientInterceptor} from "./core/middlewares/http-client-interceptor";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {PaginationComponent} from "./core/components/pagination/pagination.component";
 
 export function cacheServiceFactory() {
    return new CacheService({
@@ -25,7 +26,14 @@ export function cacheServiceFactory() {
 }
 
 @NgModule({
-   declarations: [AppComponent, HomeComponent, PostComponent, PostsComponent, NotFoundComponent],
+   declarations: [
+      AppComponent,
+      HomeComponent,
+      PostComponent,
+      PostsComponent,
+      NotFoundComponent,
+      PaginationComponent,
+   ],
    imports: [
       CommonModule,
       BrowserModule,

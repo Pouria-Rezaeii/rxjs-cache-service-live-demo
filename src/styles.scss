@@ -39,8 +39,16 @@ body {
 button {
    font-weight: 500;
    cursor: pointer;
-   color: #ffffff;
-   border: none !important;
+   color: #c2c2c2;
+
+   &:hover {
+      transition: 0.2s;
+      background-color: #1f5c6d;
+   }
+}
+
+button.active {
+   background-color: #1f5c6d;
 }
 
 span {
