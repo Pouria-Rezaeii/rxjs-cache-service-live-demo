@@ -1,6 +1,13 @@
-<div class="max-width flex justify-center items-center">
-   <p *ngIf="!post">Loading...</p>
-   <div *ngIf="post" class="w-full bg-[#ffffff11] px-3 pt-2 pb-3 mb-2 rounded">
+<div class="max-width">
+   <div class="mb-6">
+      <code [innerHTML]="config"></code>, also, there's a deliberate 300ms delay.
+   </div>
+
+   <div *ngIf="!post" class="h-[210px] sm:h-[180px] md:h-[150.5px]">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+
+   <div *ngIf="post" class="bg-[#ffffff11] px-3 pt-2 pb-3 mb-2 rounded">
       <div class="flex gap-2 items-center mb-3">
          <img [src]="getAuthorImageLink(post!.userId)" alt="avatar" class="w-8 h-8 rounded-full" />
          <p class="text-sm">{{ getAuthorName(post!.userId) }}</p>
@@ -8,6 +15,8 @@
       <p class="text-[15px] font-medium mb-1 capitalize opacity-90">
          {{ post!.title.split(" ").slice(0, 5).join(" ") }}
       </p>
-      <p class="text-sm opacity-70">{{ capitalizeFirstLetter(post!.body) }}</p>
+      <p class="text-sm opacity-70">
+         {{ capitalizeFirstLetter(post!.body) }}. {{ capitalizeFirstLetter(post!.body) }}
+      </p>
    </div>
 </div>

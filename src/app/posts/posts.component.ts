@@ -15,10 +15,10 @@ export class PostsComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
    protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
+   public config = `<code><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">true</span> }</code>`;
    public posts: Post[];
    public selectedAuthor: number | null = null;
    public authors = getAuthors();
-   public config = `<code><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">true</span> }</code>`;
 
    constructor(
       private _postsService: PostsService,

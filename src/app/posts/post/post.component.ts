@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
    protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
+   public config = `<code><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">false</span>, clearTimeout: <span class="text-[#29ADB2]">30000ms</span> }</code>`;
    public post: Post | null = null;
 
    constructor(

@@ -22,7 +22,7 @@ export class PostsService {
          defaultParams: {_start: 0, _limit: DEFAULT_PAGE_SIZE},
          params: {_start: start || 0, _limit: limit || 5, userId: userId as number},
          observable: ({arrangedUrl}) =>
-            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(200)),
+            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(300)),
          refresh: true,
       });
    }
@@ -30,7 +30,7 @@ export class PostsService {
    public getSinglePost(id: number) {
       return this._cache.get<Post>({
          url: `posts/${id}`,
-         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(200)),
+         observable: ({arrangedUrl}) => this._httpClient.get<Post>(arrangedUrl).pipe(delay(300)),
          clearTimeout: 30000,
       });
    }
