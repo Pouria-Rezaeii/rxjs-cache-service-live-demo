@@ -8,6 +8,6 @@
       <p class="text-[15px] font-medium mb-1 capitalize opacity-90">
          {{ post!.title.split(" ").slice(0, 5).join(" ") }}
       </p>
-      <p class="text-sm opacity-70">{{ post!.body }}</p>
+      <p class="text-sm opacity-70">{{ capitalizeFirstLetter(post!.body) }}</p>
    </div>
 </div>

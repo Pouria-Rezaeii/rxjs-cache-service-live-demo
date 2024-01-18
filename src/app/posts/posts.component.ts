@@ -1,10 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {CacheService} from "rxjs-cache-service";
 import {PostsService} from "./posts.service";
-import {Post} from "./types/post.type";
+import {Post} from "../core/types/post.type";
 import {getAuthorImageLink, getAuthorName, getAuthors} from "../core/utils/get-author-info";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DEFAULT_PAGE_SIZE} from "../core/constants/default-page-size";
+import {capitalizeFirstLetter} from "../core/utils/capitalize-first-letter";
 
 @Component({
    selector: "app-posts",
@@ -13,9 +14,11 @@ import {DEFAULT_PAGE_SIZE} from "../core/constants/default-page-size";
 export class PostsComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
+   protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
    public posts: Post[];
    public selectedAuthor: number | null = null;
    public authors = getAuthors();
+   public config = `<code><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">true</span> }</code>`;
 
    constructor(
       private _postsService: PostsService,

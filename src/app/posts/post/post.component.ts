@@ -1,8 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../posts.service";
 import {ActivatedRoute} from "@angular/router";
-import {Post} from "../types/post.type";
+import {Post} from "../../core/types/post.type";
 import {getAuthorImageLink, getAuthorName} from "../../core/utils/get-author-info";
+import {capitalizeFirstLetter} from "../../core/utils/capitalize-first-letter";
 
 @Component({
    selector: "app-post",
@@ -11,6 +12,7 @@ import {getAuthorImageLink, getAuthorName} from "../../core/utils/get-author-inf
 export class PostComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
+   protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
    public post: Post | null = null;
 
    constructor(
