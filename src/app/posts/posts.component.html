@@ -1,57 +1,53 @@
-<div class="max-width">
-   <div class="mb-6">
-      <code [innerHTML]="config"></code>, also, there's a deliberate 300ms delay.
+<div class="mb-6"><code [innerHTML]="config"></code></div>
+
+<div *ngIf="!posts">
+   <div class="block sm:hidden mb-3 h-8 w-1/3">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+   <div class="mb-4 h-8">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+   <div class="mb-4 h-9">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+   <div *ngFor="let i of [1, 2, 3, 4, 5]" class="h-[110.5px] mb-3">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+</div>
+
+<div *ngIf="posts">
+   <div class="mb-4">
+      <app-pagination [count]="selectedAuthor ? 10 : 40" [pageSizes]="[5, 10]"></app-pagination>
+   </div>
+   <div class="mb-4">
+      <ng-select
+         class="custom-select"
+         [items]="authors"
+         bindLabel="name"
+         bindValue="userId"
+         placeholder="Filter by Author"
+         [(ngModel)]="selectedAuthor"
+         (change)="authorChange($event)"
+      >
+      </ng-select>
    </div>
 
-   <div *ngIf="!posts">
-      <div class="block sm:hidden mb-3 h-8 w-1/3">
-         <app-rectangle-skeleton></app-rectangle-skeleton>
-      </div>
-      <div class="mb-4 h-8">
-         <app-rectangle-skeleton></app-rectangle-skeleton>
-      </div>
-      <div class="mb-4 h-9">
-         <app-rectangle-skeleton></app-rectangle-skeleton>
-      </div>
-      <div *ngFor="let i of [1, 2, 3, 4, 5]" class="h-[110.5px] mb-3">
-         <app-rectangle-skeleton></app-rectangle-skeleton>
-      </div>
-   </div>
-
-   <div *ngIf="posts">
-      <div class="mb-4">
-         <app-pagination [count]="selectedAuthor ? 10 : 40" [pageSizes]="[5, 10]"></app-pagination>
-      </div>
-      <div class="mb-4">
-         <ng-select
-            class="custom-select"
-            [items]="authors"
-            bindLabel="name"
-            bindValue="userId"
-            placeholder="Filter by Author"
-            [(ngModel)]="selectedAuthor"
-            (change)="authorChange($event)"
-         >
-         </ng-select>
-      </div>
-
-      <ul>
-         <li *ngFor="let post of posts" [routerLink]="'./' + post.id" class="cursor-pointer mb-3">
-            <div class="bg-[#ffffff11] px-3 pt-2 pb-3 rounded">
-               <div class="flex gap-2 items-center mb-3">
-                  <img
-                     [src]="getAuthorImageLink(post.userId)"
-                     alt="avatar"
-                     class="w-8 h-8 rounded-full"
-                  />
-                  <p class="text-sm">{{ getAuthorName(post.userId) }}</p>
-               </div>
-               <p class="text-[15px] font-medium mb-1 capitalize opacity-90">
-                  {{ post.title.split(" ").slice(0, 5).join(" ") }}
-               </p>
-               <p class="truncate text-sm opacity-70">{{ capitalizeFirstLetter(post.body) }}</p>
+   <ul>
+      <li *ngFor="let post of posts" [routerLink]="'./' + post.id" class="cursor-pointer mb-3">
+         <div class="bg-[#ffffff11] px-3 pt-2 pb-3 rounded">
+            <div class="flex gap-2 items-center mb-3">
+               <img
+                  [src]="getAuthorImageLink(post.userId)"
+                  alt="avatar"
+                  class="w-8 h-8 rounded-full"
+               />
+               <p class="text-sm">{{ getAuthorName(post.userId) }}</p>
             </div>
-         </li>
-      </ul>
-   </div>
+            <p class="text-[15px] font-medium mb-1 capitalize opacity-90">
+               {{ post.title.split(" ").slice(0, 5).join(" ") }}
+            </p>
+            <p class="truncate text-sm opacity-70">{{ capitalizeFirstLetter(post.body) }}</p>
+         </div>
+      </li>
+   </ul>
 </div>

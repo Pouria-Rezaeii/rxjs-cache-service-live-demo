@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
    protected readonly getAuthorImageLink = getAuthorImageLink;
    protected readonly getAuthorName = getAuthorName;
    protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
-   public config = `<code><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">true</span> }</code>`;
+   public config = `<span><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">true</span> }, also, there's a deliberate 300ms delay.</span>`;
    public posts: Post[];
    public selectedAuthor: number | null = null;
    public authors = getAuthors();

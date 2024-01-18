@@ -17,6 +17,8 @@ import {PaginationComponent} from "./core/components/pagination/pagination.compo
 import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule} from "@angular/forms";
 import {RectangleSkeletonComponent} from "./core/components/rectangle-skeleton/rectangle-skeleton.component";
+import {HeaderComponent} from "./core/components/header/header.component";
+import {FooterComponent} from "./core/components/footer/footer.component";
 
 export function cacheServiceFactory() {
    return new CacheService({
@@ -37,6 +39,8 @@ export function cacheServiceFactory() {
       NotFoundComponent,
       PaginationComponent,
       RectangleSkeletonComponent,
+      HeaderComponent,
+      FooterComponent,
    ],
    imports: [
       CommonModule,

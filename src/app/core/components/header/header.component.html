@@ -1,0 +1,23 @@
+<header class="bg-secondary sticky top-0 z-50">
+   <div class="max-width flex justify-between items-center py-6 h-[80px]">
+      <div class="flex items-center gap-1">
+         <img src="/assets/icons/logo.png" alt="logo" class="w-[32px] h-[32px]" />
+         <a routerLink="/" class="text-primary text-lg min-[399px]:text-xl font-medium"
+            >RxJS Cache Service</a
+         >
+      </div>
+      <nav>
+         <ul class="flex gap-6 sm:gap-12 md:gap-16">
+            <li>
+               <a
+                  routerLink="/"
+                  routerLinkActive="underline font-semibold"
+                  [routerLinkActiveOptions]="{exact: true}"
+                  >Home</a
+               >
+            </li>
+            <li><a routerLink="/posts" routerLinkActive="underline font-semibold">Posts</a></li>
+         </ul>
+      </nav>
+   </div>
+</header>

@@ -61,20 +61,12 @@ span {
    max-width: 700px;
    margin-left: auto;
    margin-right: auto;
+   padding-left: 16px;
+   padding-right: 16px;
 }
 
 .link-primary {
    @apply text-primary;
-}
-
-.icon-small {
-   width: 48px;
-   height: 48px;
-}
-
-.icon-medium {
-   width: 68px;
-   height: 68px;
 }
 
 .ng-select.custom-select {

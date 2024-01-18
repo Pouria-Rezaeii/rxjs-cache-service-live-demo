@@ -1,0 +1,38 @@
+<footer class="pb-6 pt-8 md:pt-12 lg:pt:16 bg-gradient-to-b from-[#ffffff00] to-[#0b485988]">
+   <div class="max-width flex flex-col-reverse min-[900px]:flex-row min-[900px]:justify-between">
+      <div class="">
+         <div class="flex justify-center items-center min-[900px]:justify-start">
+            <img src="assets/icons/mail.png" alt="mail" class="w-9 h-9 ml-[-6px]" />
+            <a [href]="'mailto:' + outerLinks.mail" class="text-[15px]">{{ outerLinks.mail }}</a>
+         </div>
+         <p
+            class="text-sm max-w-[270px] text-center mx-auto min-[900px]:max-w-full min-[900px]:text-start"
+         >
+            This website uses
+            <a [href]="outerLinks.jsonPlaceholder" target="_blank" class="text-primary"
+               >Json Placeholder</a
+            >
+            API and
+            <a [href]="outerLinks.vecteezy" target="_blank" class="text-primary">Vecteezy</a>
+            images.
+         </p>
+      </div>
+
+      <div class="flex justify-center items-center gap-1">
+         <a [href]="outerLinks.github" target="_blank">
+            <img
+               src="/assets/icons/github.png"
+               alt="github"
+               class="w-[48px] h-[48px] min-[900px]:w-[58px] min-[900px]:h-[58px]"
+            />
+         </a>
+         <a [href]="outerLinks.npm" target="_blank">
+            <span
+               class="border border-2 border-[#C53735] w-[40px] h-[40px] min-[900px]:w-[46px] min-[900px]:h-[46px] flex items-center p-1.5 rounded-full"
+            >
+               <img src="/assets/icons/npm.png" alt="npm" class="w-full h-full" />
+            </span>
+         </a>
+      </div>
+   </div>
+</footer>
