@@ -3,6 +3,7 @@ export const outerLinks = {
    github: "https://github.com/Pouria-Rezaeii/rxjs-cache-service",
    githubReadMe:
       "https://github.com/Pouria-Rezaeii/rxjs-cache-service?tab=readme-ov-file#beginning",
+   githubDemo: "https://github.com/Pouria-Rezaeii/rxjs-cache-service-live-demo",
    mail: "pouria.rezaei1992@gmail.com",
    jsonPlaceholder: "https://jsonplaceholder.typicode.com/",
    vecteezy:

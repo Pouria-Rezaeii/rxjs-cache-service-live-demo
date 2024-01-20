@@ -10,9 +10,6 @@
    <div class="mb-4 h-9">
       <app-rectangle-skeleton></app-rectangle-skeleton>
    </div>
-   <div *ngFor="let i of [1, 2, 3, 4, 5]" class="h-[110.5px] mb-3">
-      <app-rectangle-skeleton></app-rectangle-skeleton>
-   </div>
 </div>
 
 <div *ngIf="posts">
@@ -31,7 +28,9 @@
       >
       </ng-select>
    </div>
+</div>
 
+<div *ngIf="!isLoading">
    <ul>
       <li *ngFor="let post of posts" [routerLink]="'./' + post.id" class="cursor-pointer mb-3">
          <div class="bg-[#ffffff11] px-3 pt-2 pb-3 rounded">
@@ -51,3 +50,9 @@
       </li>
    </ul>
 </div>
+
+<ng-container *ngIf="isLoading">
+   <div *ngFor="let i of [1, 2, 3, 4, 5]" class="h-[110.5px] mb-3">
+      <app-rectangle-skeleton></app-rectangle-skeleton>
+   </div>
+</ng-container>

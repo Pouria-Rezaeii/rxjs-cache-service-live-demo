@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {CacheService} from "rxjs-cache-service";
 import {HttpClient} from "@angular/common/http";
 import {Post} from "../core/types/post.type";
-import {delay} from "rxjs";
+import {delay, map} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {DEFAULT_PAGE_SIZE} from "../core/constants/default-page-size";
 
@@ -20,7 +20,7 @@ export class PostsService {
       return this._cache.get<Post[]>({
          url: "posts",
          defaultParams: {_start: 0, _limit: DEFAULT_PAGE_SIZE},
-         params: {_start: start || 0, _limit: limit || 5, userId: userId as number},
+         params: {_start: start, _limit: limit, userId: userId},
          observable: ({arrangedUrl}) =>
             this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(300)),
          refresh: true,
