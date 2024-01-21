@@ -1,6 +1,6 @@
 <div class="mb-6"><code [innerHTML]="config"></code></div>
 
-<div *ngIf="!post" class="h-[210px] sm:h-[180px] md:h-[150.5px]">
+<div *ngIf="isLoading" class="h-[210px] sm:h-[180px] md:h-[150.5px]">
    <app-rectangle-skeleton></app-rectangle-skeleton>
 </div>
 
@@ -16,3 +16,5 @@
       {{ capitalizeFirstLetter(post!.body) }}. {{ capitalizeFirstLetter(post!.body) }}
    </p>
 </div>
+
+<app-error-box *ngIf="error"> An error occurred while fetching post. </app-error-box>

@@ -6,6 +6,7 @@ module.exports = {
          primary: "#d97b5d",
          secondary: "#0b4859",
          "secondary-light": "#1f5c6d",
+         error: "#F72B2A",
       },
       extend: {},
    },

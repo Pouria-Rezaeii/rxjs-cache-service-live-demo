@@ -20,6 +20,7 @@ export class PostsComponent implements OnInit {
    public selectedAuthor: number | null = null;
    public authors = getAuthors();
    public isLoading: boolean;
+   public error: boolean;
 
    constructor(
       private _postsService: PostsService,
@@ -31,6 +32,7 @@ export class PostsComponent implements OnInit {
    ngOnInit() {
       this._activatedRoute.queryParams.subscribe((params) => {
          this.isLoading = true;
+         this.error = false;
          params["userId"] && (this.selectedAuthor = +params["userId"]);
          this.fetchPosts();
       });
@@ -52,8 +54,10 @@ export class PostsComponent implements OnInit {
                this.posts = res;
                this.isLoading = false;
             },
-            error: (e) => alert("An error occurred while fetching posts."),
-            complete: () => (this.isLoading = false),
+            error: () => {
+               this.error = true;
+               this.isLoading = false;
+            },
          });
    }
 

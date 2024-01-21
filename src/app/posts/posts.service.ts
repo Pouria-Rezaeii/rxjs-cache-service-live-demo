@@ -19,10 +19,9 @@ export class PostsService {
 
       return this._cache.get<Post[]>({
          url: "posts",
-         defaultParams: {_start: 0, _limit: DEFAULT_PAGE_SIZE},
+         defaultParams: {_start: 0, _limit: DEFAULT_PAGE_SIZE, _sort: "title"},
          params: {_start: start, _limit: limit, userId: userId},
-         observable: ({arrangedUrl}) =>
-            this._httpClient.get<Post[]>(arrangedUrl, {params: {_sort: "title"}}).pipe(delay(300)),
+         observable: ({arrangedUrl}) => this._httpClient.get<Post[]>(arrangedUrl).pipe(delay(300)),
          refresh: true,
       });
    }

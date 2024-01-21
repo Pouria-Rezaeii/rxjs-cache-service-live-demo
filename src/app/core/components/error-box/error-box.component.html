@@ -1,0 +1,6 @@
+<ng-container>
+   <div #ref class="flex justify-center px-4 py-8 text-error mt-12 border border-error rounded">
+      <ng-content></ng-content>
+   </div>
+   <ng-container *ngIf="!ref.hasChildNodes()">An error occurred.</ng-container>
+</ng-container>

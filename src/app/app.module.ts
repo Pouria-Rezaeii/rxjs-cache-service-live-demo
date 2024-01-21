@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 import {RectangleSkeletonComponent} from "./core/components/rectangle-skeleton/rectangle-skeleton.component";
 import {HeaderComponent} from "./core/components/header/header.component";
 import {FooterComponent} from "./core/components/footer/footer.component";
+import {ErrorBoxComponent} from "./core/components/error-box/error-box.component";
 
 export function cacheServiceFactory() {
    return new CacheService({
@@ -41,6 +42,7 @@ export function cacheServiceFactory() {
       RectangleSkeletonComponent,
       HeaderComponent,
       FooterComponent,
+      ErrorBoxComponent,
    ],
    imports: [
       CommonModule,

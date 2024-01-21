@@ -15,6 +15,8 @@ export class PostComponent implements OnInit {
    protected readonly capitalizeFirstLetter = capitalizeFirstLetter;
    public config = `<span><span class="text-primary">config</span> = { refresh: <span class="text-[#29ADB2]">false</span>, clearTimeout: <span class="text-[#29ADB2]">30000ms</span> }, also, there's a deliberate 300ms delay.</span>`;
    public post: Post | null = null;
+   public isLoading = true;
+   public error = false;
 
    constructor(
       private _postsService: PostsService,
@@ -27,8 +29,15 @@ export class PostComponent implements OnInit {
 
    public fetchPost() {
       const id = this._activatedRoute.snapshot.params["id"];
-      this._postsService.getSinglePost(id).subscribe((res) => {
-         this.post = res;
+      this._postsService.getSinglePost(id).subscribe({
+         next: (res) => {
+            this.post = res;
+            this.isLoading = false;
+         },
+         error: () => {
+            this.error = true;
+            this.isLoading = false;
+         },
       });
    }
 }

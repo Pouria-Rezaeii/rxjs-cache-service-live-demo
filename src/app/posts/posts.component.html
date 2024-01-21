@@ -1,6 +1,6 @@
 <div class="mb-6"><code [innerHTML]="config"></code></div>
 
-<div *ngIf="!posts">
+<div *ngIf="isLoading && !posts">
    <div class="block sm:hidden mb-3 h-8 w-1/3">
       <app-rectangle-skeleton></app-rectangle-skeleton>
    </div>
@@ -30,7 +30,7 @@
    </div>
 </div>
 
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading && !error">
    <ul>
       <li *ngFor="let post of posts" [routerLink]="'./' + post.id" class="cursor-pointer mb-3">
          <div class="bg-[#ffffff11] px-3 pt-2 pb-3 rounded">
@@ -56,3 +56,5 @@
       <app-rectangle-skeleton></app-rectangle-skeleton>
    </div>
 </ng-container>
+
+<app-error-box *ngIf="error"> An error occurred while fetching posts. </app-error-box>
