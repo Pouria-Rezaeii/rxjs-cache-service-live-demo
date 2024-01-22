@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, timeout} from "rxjs";
 
 @Injectable()
 export class HttpClientInterceptor implements HttpInterceptor {
@@ -8,6 +8,6 @@ export class HttpClientInterceptor implements HttpInterceptor {
       const apiReq = req.clone({
          url: `https://jsonplaceholder.typicode.com/${req.url}`,
       });
-      return next.handle(apiReq);
+      return next.handle(apiReq).pipe(timeout(12000));
    }
 }
