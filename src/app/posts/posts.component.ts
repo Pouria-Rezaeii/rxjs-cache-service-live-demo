@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {CacheService} from "rxjs-cache-service";
 import {PostsService} from "./posts.service";
 import {Post} from "../core/types/post.type";
 import {getAuthorImageLink, getAuthorName, getAuthors} from "../core/utils/get-author-info";
@@ -24,7 +23,6 @@ export class PostsComponent implements OnInit {
 
    constructor(
       private _postsService: PostsService,
-      private _cacheService: CacheService,
       private _activatedRoute: ActivatedRoute,
       private _router: Router
    ) {}

@@ -1,9 +1,9 @@
 export const outerLinks = {
-   npm: "https://www.npmjs.com/package/rxjs-cache-service",
-   github: "https://github.com/Pouria-Rezaeii/rxjs-cache-service",
+   npm: "https://www.npmjs.com/package/rxjs-response-cache",
+   github: "https://github.com/Pouria-Rezaeii/rxjs-response-cache",
    githubReadMe:
-      "https://github.com/Pouria-Rezaeii/rxjs-cache-service?tab=readme-ov-file#beginning",
-   githubDemo: "https://github.com/Pouria-Rezaeii/rxjs-cache-service-live-demo",
+      "https://github.com/Pouria-Rezaeii/rxjs-response-cache?tab=readme-ov-file#beginning",
+   githubDemo: "https://github.com/Pouria-Rezaeii/rxjs-response-cache-live-demo",
    mail: "pouria.rezaei1992@gmail.com",
    jsonPlaceholder: "https://jsonplaceholder.typicode.com/",
    vecteezy:

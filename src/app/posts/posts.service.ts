@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {CacheService} from "rxjs-cache-service";
+import {ResponseCache} from "rxjs-response-cache";
 import {HttpClient} from "@angular/common/http";
 import {Post} from "../core/types/post.type";
 import {delay} from "rxjs";
@@ -10,7 +10,7 @@ import {DEFAULT_PAGE_SIZE} from "../core/constants/default-page-size";
 export class PostsService {
    constructor(
       private _httpClient: HttpClient,
-      private _cache: CacheService,
+      private _cache: ResponseCache,
       private _activatedRoute: ActivatedRoute
    ) {}
 

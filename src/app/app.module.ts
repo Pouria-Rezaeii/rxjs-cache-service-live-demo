@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {CacheService} from "rxjs-cache-service";
+import {ResponseCache} from "rxjs-response-cache";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {PostComponent} from "./posts/post/post.component";
@@ -22,7 +22,7 @@ import {FooterComponent} from "./core/components/footer/footer.component";
 import {ErrorBoxComponent} from "./core/components/error-box/error-box.component";
 
 export function cacheServiceFactory() {
-   return new CacheService({
+   return new ResponseCache({
       isDevMode: true,
       devtool: {
          show: true,
@@ -60,7 +60,7 @@ export function cacheServiceFactory() {
          multi: true,
       },
       {
-         provide: CacheService,
+         provide: ResponseCache,
          useFactory: cacheServiceFactory,
       },
       PostsService,

@@ -3,7 +3,7 @@
    "version": 1,
    "newProjectRoot": "projects",
    "projects": {
-      "rxjs-cache-service-live-demo": {
+      "rxjs-response-cache-live-demo": {
          "projectType": "application",
          "schematics": {
             "@schematics/angular:component": {
@@ -17,7 +17,7 @@
             "build": {
                "builder": "@angular-devkit/build-angular:browser",
                "options": {
-                  "outputPath": "dist/rxjs-cache-service-live-demo",
+                  "outputPath": "dist/rxjs-response-cache-live-demo",
                   "index": "src/index.html",
                   "main": "src/main.ts",
                   "polyfills": ["zone.js"],
@@ -58,10 +58,10 @@
                "builder": "@angular-devkit/build-angular:dev-server",
                "configurations": {
                   "production": {
-                     "browserTarget": "rxjs-cache-service-live-demo:build:production"
+                     "browserTarget": "rxjs-response-cache-live-demo:build:production"
                   },
                   "development": {
-                     "browserTarget": "rxjs-cache-service-live-demo:build:development"
+                     "browserTarget": "rxjs-response-cache-live-demo:build:development"
                   }
                },
                "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
             "extract-i18n": {
                "builder": "@angular-devkit/build-angular:extract-i18n",
                "options": {
-                  "browserTarget": "rxjs-cache-service-live-demo:build"
+                  "browserTarget": "rxjs-response-cache-live-demo:build"
                }
             },
             "test": {
